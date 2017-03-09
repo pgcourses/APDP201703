@@ -1,4 +1,5 @@
-﻿using System;
+﻿using _01Adapter.Resource;
+using System;
 using System.Collections.Generic;
 
 namespace _01Adapter
@@ -11,7 +12,7 @@ namespace _01Adapter
 
         public IList<Address> GetAddresses()
         {
-            return new List<Address> { new Address { EMail = "gabor.plesz@gmail.com" } };
+            return new List<Address> { new Address { EMail = GlobalStrings.TesztEmailAddress } };
         }
     }
 }

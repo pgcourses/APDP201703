@@ -49,22 +49,30 @@
     </TypeIdentifier>
   </Class>
   <Class Name="_01Adapter.Address">
-    <Position X="11" Y="0.5" Width="1.5" />
+    <Position X="10.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Address.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="_01Adapter.MockDbDataAdapter">
-    <Position X="11" Y="2.75" Width="2" />
+    <Position X="10.75" Y="2.75" Width="2" />
     <TypeIdentifier>
-      <HashCode>AAQAAUAAAAAAAAECAAAABAAAQAAACAAAAAEAgAAAAAA=</HashCode>
-      <FileName>Design\MockDbDataAdapter.cs</FileName>
+      <HashCode>AAQAAUAABAAAAAECAAAABAAAQAAACAAAAAEAgAAAAAA=</HashCode>
+      <FileName>Design\DisplayOnlyMockDbDataAdapter.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="dataTable" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="System.Data.DataTable" Collapsed="true">
+    <Position X="14.75" Y="2.75" Width="1.5" />
+    <TypeIdentifier />
     <Lollipop Position="0.2" />
   </Class>
   <Interface Name="_01Adapter.IAddressRepository">
-    <Position X="2.75" Y="0.75" Width="1.75" />
+    <Position X="2.75" Y="2" Width="1.75" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAA=</HashCode>
       <FileName>IAddressRepository.cs</FileName>

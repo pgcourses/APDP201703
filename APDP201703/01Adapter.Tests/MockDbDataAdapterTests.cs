@@ -10,10 +10,25 @@ namespace _01Adapter.Tests
     public class MockDbDataAdapterTests
     {
         [TestMethod]
-        public void MockDbDataAdapterRepositoryShouldThrowIfArgumentNull()
+        public void MockDbDataAdapterRepositoryShouldThrowIfCtorArgumentNull()
         {
             //Arrange
-            var sut = new MockDbDataAdapter();
+            MockDbDataAdapter sut;
+
+            //Act
+            Action todo = () => sut = new MockDbDataAdapter(null);
+
+            //Assert
+            todo.ShouldThrow<ArgumentNullException>();
+
+        }
+
+
+        [TestMethod]
+        public void MockDbDataAdapterRepositoryShouldThrowIfFillArgumentNull()
+        {
+            //Arrange
+            var sut = new MockDbDataAdapter(MockDataTableFactory.GetCreateDataTable());
 
             //Act
             Action todo = () => sut.Fill(null);
@@ -27,7 +42,7 @@ namespace _01Adapter.Tests
         public void MockDbDataAdapterShouldReturnOneTable()
         {
             //Arrange
-            var sut = new MockDbDataAdapter();
+            var sut = new MockDbDataAdapter(MockDataTableFactory.GetCreateDataTable());
             var dataSet = new DataSet();
             //Act
             sut.Fill(dataSet);
@@ -40,7 +55,7 @@ namespace _01Adapter.Tests
         public void MockDbDataAdapterShouldReturnData()
         {
             //Arrange
-            var sut = new MockDbDataAdapter();
+            var sut = new MockDbDataAdapter(MockDataTableFactory.GetCreateDataTable());
             var dataSet = new DataSet();
             //Act
             sut.Fill(dataSet);
@@ -49,9 +64,7 @@ namespace _01Adapter.Tests
             dataSet.Tables.Should().HaveCount(1, "Mivel egy táblával kell visszatérni");
 
             var table = dataSet.Tables[0];
-            table.Rows.Should().HaveCount(1, "Mivel a táblában kell lennie egy sornak");
-            table.Columns[GlobalStrings.TableColumnEMailAddress].Should().NotBeNull();
-            table.Rows[0][GlobalStrings.TableColumnEMailAddress].Should().Be(GlobalStrings.TesztEmailAddress);
+            MockDataTableFactory.CheckDataTable(table);
 
         }
 

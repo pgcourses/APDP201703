@@ -2,6 +2,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using FluentAssertions;
 using System.Data;
+using _01Adapter.Resource;
 
 namespace _01Adapter.Tests
 {
@@ -35,7 +36,7 @@ namespace _01Adapter.Tests
         public void AddressDbDataAdapterRepositoryShouldReturnData()
         {
             //Arrange
-            var adapter = new MockDbDataAdapter();
+            var adapter = new MockDbDataAdapter(MockDataTableFactory.GetCreateDataTable());
             var sut = new AddressDbDataAdapterRepository(adapter);
 
             //Act
@@ -44,7 +45,7 @@ namespace _01Adapter.Tests
             //Assert
             list.Should().HaveCount(1, "mivel egy elemet küldtünk a repoba")
                 .And
-                .Should().Equals(new Address { EMail = "gabor.plesz@gmail.com" });
+                .Should().Equals(new Address { EMail = GlobalStrings.TesztEmailAddress });
 
         }
     }

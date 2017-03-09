@@ -6,22 +6,22 @@ namespace _01Adapter.Tests
 {
     public class MockDbDataAdapter : IDbDataAdapter
     {
+        private DataTable dataTable;
+
+        public MockDbDataAdapter(DataTable dataTable)
+        {
+            if (dataTable==null) { throw new ArgumentNullException(nameof(dataTable)); }
+            this.dataTable = dataTable;
+        }
 
         public int Fill(DataSet dataSet)
         {
             if (dataSet == null) { throw new ArgumentNullException(nameof(dataSet)); }
 
-            var dataTable = new DataTable();
-
-            dataTable.Columns.Add(GlobalStrings.TableColumnEMailAddress, typeof(string));
-            var row = dataTable.NewRow();
-            row[GlobalStrings.TableColumnEMailAddress] = GlobalStrings.TesztEmailAddress;
-            dataTable.Rows.Add(row);
-
             dataSet.Tables.Add(dataTable);
             dataSet.AcceptChanges();
 
-            return 0;
+            return dataTable.Rows.Count;
         }
 
         #region not implemented

@@ -65,6 +65,8 @@
   <ItemGroup>
     <Compile Include="AdapterExampleTests.cs" />
     <Compile Include="AddressDbDataAdapterRepositoryTests.cs" />
+    <Compile Include="MockDataTableFactory.cs" />
+    <Compile Include="MockDataTableFactoryTests.cs" />
     <Compile Include="MockDbDataAdapter.cs" />
     <Compile Include="MockDbDataAdapterTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
