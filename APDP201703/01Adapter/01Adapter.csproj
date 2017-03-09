@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="AdapterExample.cs" />
     <Compile Include="Address.cs" />
+    <Compile Include="AddressDbDataAdapterRepository.cs" />
     <Compile Include="AddressTestRepository.cs" />
     <Compile Include="IAddressRepository.cs" />
     <Compile Include="IMessageService.cs" />
