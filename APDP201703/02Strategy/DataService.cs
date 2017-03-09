@@ -7,11 +7,24 @@ namespace _02Strategy
     {
         //Ha leszármaztatunk, akkor így kell, hogy a leszármaztatott is lássa
         protected IAddressRepository repository;
+        private IStrategy strategy;
 
         public DataService(IAddressRepository repository)
         {
             if (repository == null) { throw new ArgumentNullException(nameof(repository)); }
             this.repository = repository;
+        }
+
+        public DataService(IAddressRepository repository, IStrategy strategy) : this(repository)
+        {
+            if (strategy == null) { throw new ArgumentNullException(nameof(strategy)); }
+            this.strategy = strategy;
+        }
+
+        public int ReportWithStrategy()
+        {
+            var list = repository.GetAddresses();
+            return strategy.Operation(list);
         }
 
         public int GetSumEmailCount()
@@ -46,7 +59,6 @@ namespace _02Strategy
                     throw new ArgumentOutOfRangeException($"{nameof(rt)}: {rt}");
             }
         }
-
     }
 
     public class DataService2 : DataService

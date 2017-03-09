@@ -19,6 +19,8 @@ namespace _02Strategy
     {
         static void Main(string[] args)
         {
+            //Nem jó megoldások
+
             var service = new DataService(new AddressStrategyTestRepo());
 
             //kérjük le, hogy hány e-mail-t küldtünk már eddig
@@ -42,6 +44,27 @@ namespace _02Strategy
             var service2 = new DataService2(new AddressStrategyTestRepo());
             count = service2.Report(ReportType.Sum);
             Console.WriteLine("E-mail-ek összes száma (VIP): {0}", count);
+            Console.WriteLine();
+            //nem jó megoldások vége
+
+            //Jó megoldások
+
+            var service3 = new DataService(new AddressStrategyTestRepo(), new SumStrategy());
+
+            //lehet ilyet implementálni, csak a null értékekre figyelni kell
+            //service3.SetStrategy(new SumStrategy());
+
+            count = service3.ReportWithStrategy();
+
+            Console.WriteLine("E-mail-ek összes száma: {0}", count);
+
+            //ilyet is lehetne implementálni, szintén a nullre figyelni
+            //count = service3.ReportWithStrategy(new AvgStrategy());
+
+            var service4 = new DataService(new AddressStrategyTestRepo(), new AvgStrategy());
+            Console.WriteLine("E-mail-ek átlageos száma: {0}", service4.ReportWithStrategy());
+            Console.WriteLine();
+
 
             Console.ReadLine();
 
