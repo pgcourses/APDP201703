@@ -6,6 +6,18 @@ namespace _01Adapter
 {
     public class AdapterExample
     {
+        private readonly IAddressRepository repository;
+        private readonly IMessageService service;
+
+        public AdapterExample(IAddressRepository repository, IMessageService service)
+        {
+            if (repository == null) { throw new ArgumentNullException(nameof(repository)); }
+            this.repository = repository;
+
+            if (service == null) { throw new ArgumentNullException(nameof(service)); }
+            this.service = service;
+        }
+
         public void Start()
         {
             // 1. legyen egy adatforrásunk
@@ -16,8 +28,8 @@ namespace _01Adapter
             //egyik nagy előny, ha tervezési mintákat használunk
             //a KÖZÖS NYELV
             //ezért: az adatokat szolgáltató osztály neve: Repository
-            var repo = new AddressRepository();
-
+            //De már kívülről megkapom DI-vel (Dependency Injection)
+            //var repo = new AddressRepository();
 
             // 2. legyen egy e-mail megoldásunk (=üzenetküldő megoldás)
             ///////////////////////////////////////////////////////////
@@ -53,17 +65,18 @@ namespace _01Adapter
             //így a két szélső objektum, ha jól csináljuk, akkor már nincs egymással kapcsolatban
 
             //Tehát indirekció: készítünk egy köztes osztályt
-            var messageService = new MessageService();
+            //De már kívülről megkapom DI-vel (Dependency Injection)
+            //var messageService = new MessageService();
 
             //és ezeket kössük össze
-            var addressList = repo.GetAddresses();
+            var addressList = repository.GetAddresses();
 
             foreach (var address in addressList)
             {
-                messageService.AddMessage(to: address.EMail, subject: "Ez az üzenet címe", text: "Ez az üzenet szövege");
+                service.AddMessage(to: address.EMail, subject: "Ez az üzenet címe", text: "Ez az üzenet szövege");
             }
 
-            messageService.SendMessages();
+            service.SendMessages();
 
 
         }

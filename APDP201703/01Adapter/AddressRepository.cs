@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace _01Adapter
 {
-    public class AddressRepository
+    public class AddressRepository : IAddressRepository
     {
         public AddressRepository()
         {

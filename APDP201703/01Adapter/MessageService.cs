@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace _01Adapter
 {
-    public class MessageService
+    public class MessageService : IMessageService
     {
         //ne használj null-t: null object pattern
         private List<Message> messages = new List<Message>();
