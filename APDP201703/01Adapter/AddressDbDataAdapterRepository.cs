@@ -1,9 +1,17 @@
-﻿using System;
+﻿using _01Adapter.Resource;
+using System;
 using System.Collections.Generic;
 using System.Data;
 
 namespace _01Adapter
 {
+    /// <summary>
+    /// 
+    ///    Repository ----()------> Adatok(adatbázis)
+    ///    ebből indirekcióval
+    ///    Repository ----> IDbDataAdapter ------> Adatbázis
+    /// 
+    /// </summary>
     public class AddressDbDataAdapterRepository : IAddressRepository
     {
         private IDbDataAdapter adapter;
@@ -16,7 +24,17 @@ namespace _01Adapter
 
         public IList<Address> GetAddresses()
         {
-            throw new NotImplementedException();
+            var dataSet = new DataSet();
+            adapter.Fill(dataSet);
+
+            var list = new List<Address>();
+
+            foreach (DataRow row in dataSet.Tables[0].Rows)
+            {
+                list.Add(new Address { EMail = row.Field<string>(GlobalStrings.TableColumnEMailAddress) });
+            }
+
+            return list;
         }
     }
 }
