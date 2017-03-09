@@ -9,7 +9,7 @@ namespace _01Adapter.Resource
     public class GlobalStrings
     {
         public static readonly string TableColumnEMailAddress = "Address";
-
+        public static readonly string TableName = "MyAddresses";
         public static readonly string TesztEmailAddress = "gabor.plesz@gmail.com";
     }
 }
