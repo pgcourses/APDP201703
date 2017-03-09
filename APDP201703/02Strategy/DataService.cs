@@ -1,5 +1,6 @@
 ﻿using _01Adapter;
 using System;
+using System.Collections.Generic;
 
 namespace _02Strategy
 {
@@ -58,6 +59,12 @@ namespace _02Strategy
                 default:
                     throw new ArgumentOutOfRangeException($"{nameof(rt)}: {rt}");
             }
+        }
+
+        public int ReportWithDelegate(Func<IList<Address>, int> strategy)
+        {
+            if (strategy == null) { throw new ArgumentNullException(nameof(strategy)); }
+            return strategy(repository.GetAddresses());
         }
     }
 

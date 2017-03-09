@@ -47,7 +47,8 @@ namespace _02Strategy
             Console.WriteLine();
             //nem jó megoldások vége
 
-            //Jó megoldások
+            //Jó megoldások: Stratégia minta
+            //////////////////////////////////////////////////////////////////////////////////
 
             var service3 = new DataService(new AddressStrategyTestRepo(), new SumStrategy());
 
@@ -57,12 +58,29 @@ namespace _02Strategy
             count = service3.ReportWithStrategy();
 
             Console.WriteLine("E-mail-ek összes száma: {0}", count);
+            Console.WriteLine();
 
             //ilyet is lehetne implementálni, szintén a nullre figyelni
             //count = service3.ReportWithStrategy(new AvgStrategy());
 
-            var service4 = new DataService(new AddressStrategyTestRepo(), new AvgStrategy());
-            Console.WriteLine("E-mail-ek átlageos száma: {0}", service4.ReportWithStrategy());
+            //////////////////////////////////////////////////////////////////////
+            //A nehéztüzérség: .NET
+            /////////////////////////////////////////////////////////////////////
+            Console.WriteLine("E-mail-ek összes száma: {0}", service.ReportWithDelegate(
+                list =>
+                {
+                    var sum = 0;
+                    foreach (var addr in list)
+                    {
+                        sum += addr.EmailCount;
+                    }
+
+                    return sum;
+                }
+            ));
+            Console.WriteLine("E-mail-ek átlagos száma: {0}", service.ReportWithDelegate( 
+                list => (int)list.Average(x => x.EmailCount) //Ő a stratégiát leíró delegate
+            ));
             Console.WriteLine();
 
 
