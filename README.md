@@ -21,3 +21,12 @@ Ezzel van csomagkezelőnk.
 ## SQL Server Management Studio
 
 **cinst sql-server-management-studio** (nagyjából 15 perc)
+
+# Hivatkozások:
+
+[Design Patterns Book](https://www.amazon.com/Design-Patterns-Elements-Reusable-Object-Oriented/dp/0201633612)
+[Programtervezési minták könyv](https://www.libri.hu/konyv/erich_gamma.programtervezesi-mintak.html)
+[Példaprogramok](http://www.dofactory.com/net/design-patterns)
+[Rövidített kivonat angolul](https://sourcemaking.com/design_patterns)
+[Rövid összefoglalások](http://www.oodesign.com/)
+[Tutorialspoint](https://www.tutorialspoint.com/design_pattern/design_pattern_overview.htm)
