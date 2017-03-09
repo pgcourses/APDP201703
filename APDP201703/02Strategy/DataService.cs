@@ -5,7 +5,8 @@ namespace _02Strategy
 {
     public class DataService
     {
-        private IAddressRepository repository;
+        //Ha leszármaztatunk, akkor így kell, hogy a leszármaztatott is lássa
+        protected IAddressRepository repository;
 
         public DataService(IAddressRepository repository)
         {
@@ -50,8 +51,6 @@ namespace _02Strategy
 
     public class DataService2 : DataService
     {
-        private IAddressRepository repository;
-
         public DataService2(IAddressRepository repository) 
             : base(repository) //mivel nincs alapértelmezett konstruktora, hiszen definiáltam egy paraméterest
         {
@@ -59,11 +58,12 @@ namespace _02Strategy
             this.repository = repository;
         }
 
+        //Ez egy "új" függvényt definiál, így a két típus már nem lesz felcserélhető
         //public new int Report(ReportType rt)
         //{
-
         //}
 
+        //Így igen, de ez csak akkor megy, ha az eredeti virtual
         public override int Report(ReportType rt)
         {
             var list = repository.GetAddresses();
