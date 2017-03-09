@@ -18,7 +18,7 @@ namespace _01Adapter
 
         static void Main(string[] args)
         {
-            var example = new AdapterExample(new AddressRepository(), new MessageService());
+            var example = new AdapterExample(new AddressTestRepository(), new MessageTestService());
             example.Start();
         }
     }

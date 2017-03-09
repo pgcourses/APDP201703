@@ -3,9 +3,9 @@ using System.Collections.Generic;
 
 namespace _01Adapter
 {
-    public class AddressRepository : IAddressRepository
+    public class AddressTestRepository : IAddressRepository
     {
-        public AddressRepository()
+        public AddressTestRepository()
         {
         }
 
