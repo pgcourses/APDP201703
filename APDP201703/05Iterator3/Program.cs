@@ -75,7 +75,22 @@ namespace _05Iterator3
             }
 
             public int Id { get; }
+            public decimal Osszeg { get; }
+        }
+
+        //Automapper segítségével így lehet elmenteni EF CodeFirst segítségével az adatokat:
+        //átmásoljuk őket ilyen osztálypéldányokba
+        class BankSzmlaMentes
+        {
+            public decimal Osszeg { get; set; }
+            public ICollection<Atutalas> Atutalasok { get; set; }
+        }
+
+        class AtutalasMentes
+        {
+            public int Id { get; set; }
             public decimal Osszeg { get; set; }
         }
+
     }
 }
