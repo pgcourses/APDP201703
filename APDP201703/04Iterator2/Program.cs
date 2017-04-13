@@ -11,7 +11,7 @@ namespace _04Iterator2
     {
         static void Main(string[] args)
         {
-            var bejarhatoOsztaly = new BejarhatoOsztaly();
+            var bejarhatoOsztaly = new BejarhatoOsztaly<SajatOsztaly>();
             bejarhatoOsztaly.Add(new SajatOsztaly("első bejegyzés"));
             bejarhatoOsztaly.Add(new SajatOsztaly("második bejegyzés"));
             bejarhatoOsztaly.Add(new SajatOsztaly("harmadik bejegyzés"));
@@ -71,18 +71,18 @@ namespace _04Iterator2
         //}
     }
 
-    class BejarhatoOsztaly : IEnumerable<SajatOsztaly>
+    class BejarhatoOsztaly<T> : IEnumerable<T>
     {
-        List<SajatOsztaly> list = new List<SajatOsztaly>();
+        List<T> list = new List<T>();
 
-        internal void Add(SajatOsztaly sajatOsztaly)
+        internal void Add(T item)
         {
-            list.Add(sajatOsztaly);
+            list.Add(item);
         }
 
-        public IEnumerator<SajatOsztaly> GetEnumerator()
+        public IEnumerator<T> GetEnumerator()
         {
-            return new BejaroOsztaly(list);
+            return new BejaroOsztaly<T>(list);
         }
 
         IEnumerator IEnumerable.GetEnumerator()
@@ -91,17 +91,17 @@ namespace _04Iterator2
         }
     }
 
-    class BejaroOsztaly : IEnumerator<SajatOsztaly>
+    class BejaroOsztaly<T> : IEnumerator<T>
     {
-        private List<SajatOsztaly> list;
+        private List<T> list;
         private int position = -1;
 
-        public BejaroOsztaly(List<SajatOsztaly> list)
+        public BejaroOsztaly(List<T> list)
         {
             this.list = list;
         }
 
-        public SajatOsztaly Current
+        public T Current
         {
             get { return list[position]; }
         }
