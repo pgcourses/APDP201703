@@ -9,6 +9,14 @@ namespace _06Observer
     /// <summary>
     /// Készítsünk egy olyan programot, ami hosszan dolgozik,
     /// és időről időre szól, hogy hol tart.
+    /// 
+    /// 
+    /// Megfigyelő minta megjegyzések
+    /// Amikor a megfigyelt értesíti a megfigyelőket, akkor nem lehet tudni, hogy mekkora 
+    /// folyamat indul el
+    /// 
+    /// Az, hogy kiderüljön mi változott, külön megoldás kell
+    /// A törlést azt implementálni kell
     /// </summary>
 
     class Program

@@ -8,6 +8,9 @@ namespace _07Observer2
 {
     /// <summary>
     /// Ugyanaz mint az előbb, csak a .Net IObserver/IObservable használatával
+    /// 
+    /// Az adatcsere DTO-n keresztül megoldott, így a megfigyelt el tudja küldeni
+    /// az állapotváltozásának a részleteit.
     /// </summary>
     class Program
     {
