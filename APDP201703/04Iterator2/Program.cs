@@ -19,14 +19,33 @@ namespace _04Iterator2
 
             foreach (var item in bejarhatoOsztaly)
             {
-                Console.WriteLine("elem: {0}", item);
-                //ha én tudom, hogy ez az elem SajatOsztaly, csak akkor tudok ilyesmit csinálni
-                //ha konvertálok, és elkérem a SajatOsztaly felületet
-                if (((SajatOsztaly)item).Created.DayOfWeek == DayOfWeek.Friday)
-                {
-
-                }
+                Console.WriteLine("elem: {0}", item.Uzenet);
             }
+            //Miután a foreach véget ér, meghívja a Dispose-t.
+
+            //a foreach a következő mechanizmust hívja életre:
+            //using (var bejaro = bejarhatoOsztaly.GetEnumerator()) is kifejtve:
+            //var bejaro = bejarhatoOsztaly.GetEnumerator();
+            //try
+            //{
+            //    var leszKovetkezo = true;
+            //    do
+            //    {
+            //        leszKovetkezo = bejaro.MoveNext();
+            //        var item = bejaro.Current;
+            //        {
+            //            //ez itt a ciklus belseje
+            //        }
+            //    } while (leszKovetkezo);
+            //}
+            //finally
+            //{
+            //    if (bejaro!=null)
+            //    {
+            //        ((IDisposable)bejaro).Dispose();
+            //    }
+            //}
+
         }
     }
 
@@ -46,27 +65,33 @@ namespace _04Iterator2
         /// akkor az Uzenet property-t adja vissza
         /// </summary>
         /// <returns></returns>
-        public override string ToString()
-        {
-            return Uzenet;
-        }
+        //public override string ToString()
+        //{
+        //    return Uzenet;
+        //}
     }
 
-    class BejarhatoOsztaly : IEnumerable
+    class BejarhatoOsztaly : IEnumerable<SajatOsztaly>
     {
         List<SajatOsztaly> list = new List<SajatOsztaly>();
-        public IEnumerator GetEnumerator()
-        {
-            return new BejaroOsztaly(list);
-        }
 
         internal void Add(SajatOsztaly sajatOsztaly)
         {
             list.Add(sajatOsztaly);
         }
+
+        public IEnumerator<SajatOsztaly> GetEnumerator()
+        {
+            return new BejaroOsztaly(list);
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        { //sima duplikáció, meghívom a típusos függvényt
+            return this.GetEnumerator();
+        }
     }
 
-    class BejaroOsztaly : IEnumerator
+    class BejaroOsztaly : IEnumerator<SajatOsztaly>
     {
         private List<SajatOsztaly> list;
         private int position = -1;
@@ -76,22 +101,47 @@ namespace _04Iterator2
             this.list = list;
         }
 
-        public object Current
+        public SajatOsztaly Current
         {
-            get
-            {
-                return list[position];
-            }
+            get { return list[position]; }
         }
 
-        public bool MoveNext()
-        {
-            return ++position < list.Count;
-        }
+        //ez egyszerű duplikálás, csak meghívom a
+        //típusos függvényt
+        object IEnumerator.Current { get { return this.Current; } }
 
-        public void Reset()
-        {
-            throw new NotImplementedException();
-        }
+        public bool MoveNext() { return ++position < list.Count; }
+
+        public void Reset() { position = -1; }
+
+        public void Dispose() { } //nincs tennivalónk, nem csinál a Dispose semmit
+
+        //Az IDisposable felület miatt ez kötelező, HA A Dispose valamit csinál
+        //kötelező a finalizer
+        //~BejaroOsztaly()
+        //{
+        //    Dispose(false);
+        //}
+
+        //private void Dispose(bool isManagedDispose)
+        //{
+        //    if (isManagedDispose)
+        //    {
+        //        //Itt takarítjuk a managed erőforrásokat!
+        //        if (list != null)
+        //        {
+        //            list = null;
+        //        }
+        //    }
+        //    //a nem managed erőforrások takarítása
+        //}
+
+        //public void Dispose()
+        //{ 
+        //    Dispose(true);
+        //    //mivel takarítottunk, a finalizernek már nincs funkciója, jelezzük, hogy nem kell
+        //    GC.SuppressFinalize(this);
+        //}
+
     }
 }
