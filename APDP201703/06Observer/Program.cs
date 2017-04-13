@@ -36,26 +36,30 @@ namespace _06Observer
 
     public interface IUzenet
     {
-        void Uzenet(int allapot);
+        void Uzenet(IAllapot allapot);
     }
 
     public class NaplozoModul : IUzenet
     {
-        public void Uzenet(int allapot)
+        public void Uzenet(IAllapot allapot)
         {
-            Console.WriteLine("NaplozoModul.Uzenet: {0}", allapot);
+            Console.WriteLine("NaplozoModul.Uzenet: {0}", allapot.Allapot);
         }
     }
 
     class FelhasznaloiFelulet : IUzenet
     {
-        public void Uzenet(int allapot)
+        public void Uzenet(IAllapot allapot)
         {
-            Console.WriteLine("FelhasznaloiFelulet.Uzenet: {0}", allapot);
+            Console.WriteLine("FelhasznaloiFelulet.Uzenet: {0}", allapot.Allapot);
         }
     }
 
-    class BetoltoProgram
+    public interface IAllapot
+    {
+        int Allapot { get; } 
+    }
+    class BetoltoProgram : IAllapot
     {
         private List<IUzenet> megfigyelok = new List<IUzenet>();
 
@@ -111,11 +115,12 @@ namespace _06Observer
             this.allapot = allapot;
             foreach (var megfigyelo in megfigyelok)
             {
-                megfigyelo.Uzenet(allapot);
+                megfigyelo.Uzenet(this);
             }
         }
 
         private int allapot;
         public int Allapot { get { return allapot; } }
     }
+
 }

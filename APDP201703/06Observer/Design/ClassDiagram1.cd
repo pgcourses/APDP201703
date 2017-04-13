@@ -25,6 +25,7 @@
     <ShowAsCollectionAssociation>
       <Field Name="megfigyelok" />
     </ShowAsCollectionAssociation>
+    <Lollipop Position="0.2" />
   </Class>
   <Interface Name="_06Observer.IUzenet">
     <Position X="5" Y="3.25" Width="1.5" />
