@@ -20,7 +20,23 @@ namespace _04Iterator2
             foreach (var item in bejarhatoOsztaly)
             {
                 Console.WriteLine("elem: {0}", item.Uzenet);
+                //a bejáró nem teljes gyűjteményelérés, ezért ilyet nem tudok mondani:
+                //bejarhatoOsztaly.Remove(item);
+                //DE HA MÉGIS:
+                bejarhatoOsztaly.Remove(item);
+                //tudnom kell arról, hogy ha az adatokat módosítják, 
+                //nem értesülök róla, és csak akkor tudok ellene tenni,
+                //ha erre a forgatókönyvre felkészülök.
+
+                //1. Nem teszünk listát az ablakba (nem tesszük elérhetővé a lista 
+                //   adatainkat kívülről
+                //2. Így értesülünk a módosításról, és kezelni tudjuk
+                //3. Helyzettől függ, hogy engedjük a módosítást és értesítjük a bejáró(kat), vagy
+                //   vagy már a módosítást sem engedjük
+                //4. Párhuzamos bejárásokra a saját bejáróval lehet a legegyszerűbben felkészülni
+                //5. Ha a bejáró és a bejárandó egy osztályba kerül, akkor a dispose implementációja érdekes lehet
             }
+
             //Miután a foreach véget ér, meghívja a Dispose-t.
 
             //a foreach a következő mechanizmust hívja életre:
@@ -44,6 +60,18 @@ namespace _04Iterator2
             //    {
             //        ((IDisposable)bejaro).Dispose();
             //    }
+            //}
+
+            //var lista = new List<string>(new string[] { "egy", "kettő", "három" });
+
+            ////Nagyon fontos annak kezelése, hogy a bejárható példány elemei módosultak-e?
+            ////mert ha igen, akkor valamit tenni kell.
+            ////a List<T> Enumerator-a például ilyenkor exception-t dob:
+            ////System.InvalidOperationException: Collection was modified; enumeration operation may not execute.
+            //foreach (var item in lista)
+            //{
+            //    Console.WriteLine("elem: {0}", item);
+            //    lista.Remove(item);
             //}
 
         }
@@ -73,11 +101,19 @@ namespace _04Iterator2
 
     class BejarhatoOsztaly<T> : IEnumerable<T>
     {
+        //Antipattern  példa: listát nem osztunk meg!
         List<T> list = new List<T>();
 
-        internal void Add(T item)
+        public void Add(T item)
         {
             list.Add(item);
+        }
+
+        public void Remove(T item)
+        {
+            list.Remove(item);
+            //értesítenem kell a bejáróimat, hogy 
+            //helyzet van!!!!!!
         }
 
         public IEnumerator<T> GetEnumerator()
@@ -89,6 +125,7 @@ namespace _04Iterator2
         { //sima duplikáció, meghívom a típusos függvényt
             return this.GetEnumerator();
         }
+
     }
 
     class BejaroOsztaly<T> : IEnumerator<T>
