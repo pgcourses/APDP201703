@@ -22,8 +22,11 @@ namespace _03Iterator
             bejarhatoOsztaly.Add("harmadik elem");
             bejarhatoOsztaly.Add("negyedik elem");
 
+            //ez egy kis csalás, mert System.Object jön a ciklusváltozóba
             foreach (var item in bejarhatoOsztaly)
             {
+                //de string esetén a ToString() metódus éppen jót végez,
+                //így ez nem szúr elsőre feltétlenül szemet.
                 Console.WriteLine("ciklus: {0}", item);
             }
 
