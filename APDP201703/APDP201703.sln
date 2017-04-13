@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02Strategy", "02Strategy\02
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "00Data.Tests", "00Data.Tests\00Data.Tests.csproj", "{7E638781-7EF3-460A-B842-463641CDA9C7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "03Iterator", "03Iterator\03Iterator.csproj", "{448C2B3F-41E4-4213-BE05-D0131F85FE98}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{7E638781-7EF3-460A-B842-463641CDA9C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7E638781-7EF3-460A-B842-463641CDA9C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7E638781-7EF3-460A-B842-463641CDA9C7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{448C2B3F-41E4-4213-BE05-D0131F85FE98}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{448C2B3F-41E4-4213-BE05-D0131F85FE98}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{448C2B3F-41E4-4213-BE05-D0131F85FE98}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{448C2B3F-41E4-4213-BE05-D0131F85FE98}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
