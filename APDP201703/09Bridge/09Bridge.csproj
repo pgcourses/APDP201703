@@ -46,11 +46,15 @@
     <Compile Include="EmailAddress.cs" />
     <Compile Include="EmailMessage.cs" />
     <Compile Include="EmailService.cs" />
+    <Compile Include="EmailServiceWithExchange.cs" />
+    <Compile Include="EmailServiceWithMandrill.cs" />
+    <Compile Include="EmailServiceWithSendGrid.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="Design\ClassDiagram1.cd" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

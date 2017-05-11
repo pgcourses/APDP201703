@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="_09Bridge.EmailAddress">
+    <Position X="15.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAQAAAAAAAAACAAAAAAAAAAA=</HashCode>
+      <FileName>EmailAddress.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_09Bridge.EmailMessage">
+    <Position X="12.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAAAAAAAAAAIAAAAAAAAAIAAAAAAAAIAAAAAA=</HashCode>
+      <FileName>EmailMessage.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="From" />
+      <Property Name="To" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="_09Bridge.EmailService" Collapsed="true">
+    <Position X="8.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>EmailService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_09Bridge.EmailServiceWithExchange">
+    <Position X="6.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAEAAAAAAAAAACAACAQAAAAAAAAA=</HashCode>
+      <FileName>EmailServiceWithExchange.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_09Bridge.EmailServiceWithMandrill">
+    <Position X="8.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAABAAAAAAAAEAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>EmailServiceWithMandrill.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_09Bridge.EmailServiceWithSendGrid">
+    <Position X="10.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAAAAAAAAAEAAgAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>EmailServiceWithSendGrid.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
