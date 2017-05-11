@@ -49,6 +49,22 @@ namespace _10Bridge1
             //akkor nem fogja meghívni semmi az én függvényemet, ez így sosem fog naplózni.
             //EmailService serviceWithLogger = new EmailServiceWithLogger(service, sendWith);
 
+            //PROXY minta: ha a proxy osztály felületének a használatát ki lehet kényszeríteni.
+            //egyéb nevek: Wrapper/burkoló
+            var serviceProxy = new EmailServiceProxy(service, sendWith);
+
+            //A proxy osztályt akkor használjuk, ha például
+            // - a fejlesztéskor nem áll rendelkezésre a végleges megvalósítás
+            // - hálózaton keresztül kapcsolódunk, és szeretnénk tesztet írni,
+            //   - jogosultságot implementálni
+            //   - cache-t implementálni.
+
+            //Facade: amikor az eredeti osztály felülete nagyon bonyolult, akkor
+            //        egy egyszerű könnyebben felhasználható felületet adunk.
+            // Például:
+            //       Sok komolyabb workflow-t implementáló WebAPI ad saját kliens könyvtárat.
+            //       Például: Paypal fizetés
+
             var message = new EmailMessage
             {
                 From = officeAddress,
