@@ -2,7 +2,7 @@
 
 namespace _10Bridge1
 {
-    public class Templating
+    public abstract class AbstractTemplating
     {
         public EmailMessage GetMessageFor(Person person)
         {
@@ -16,14 +16,8 @@ namespace _10Bridge1
 
         }
 
-        private string GetMessage(Person person)
-        {
-            return $"Kedves {person.Name}! A cég nevében szeretnénk boldog születésnapot kívánni";
-        }
+        protected abstract string GetMessage(Person person);
 
-        private string GetSubject(Person person)
-        {
-            return "Születésnapi üdvözlet";
-        }
+        protected abstract string GetSubject(Person person);
     }
 }

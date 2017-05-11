@@ -48,6 +48,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AbstractMessageFactory.cs" />
+    <Compile Include="AbstractTemplating.cs" />
+    <Compile Include="BirthdayMessageFactoryWithExchange.cs" />
+    <Compile Include="WelcomeTemplating.cs" />
+    <Compile Include="WelcomeMessageFactoryWithSendGrid.cs" />
     <Compile Include="EmailAddress.cs" />
     <Compile Include="EmailAddressFactory.cs" />
     <Compile Include="EmailMessage.cs" />
@@ -68,10 +73,11 @@
     <Compile Include="SendWithExchangeTest.cs" />
     <Compile Include="SendWithMandrill.cs" />
     <Compile Include="SendWithSendGrid.cs" />
-    <Compile Include="Templating.cs" />
+    <Compile Include="BirthdayTemplating.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="Design\ClassDiagram-AbstractFactory.cd" />
     <None Include="Design\ClassDiagram1.cd" />
     <None Include="packages.config" />
   </ItemGroup>

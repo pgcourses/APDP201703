@@ -38,14 +38,22 @@ namespace _10Bridge1
             //A dekorátor/proxy/facade
             //TestBridgeAndDecoratorAndProxy();
 
-            var send = AbstractSendWith.Factory<SendWithExchange>();
-            var service = new EmailService(send);
-            var repo = kernel.Get<IPersonRepository>();
-            var template = new Templating();
+            //A létrehozásokat becsomagoljuk egy speciális stratégiába, majd
+            //a stratégiapéldányt átadjuk a szervíznek használatra.
 
-            var msgService = new MessageService(service, repo, template);
+            var birthdayMessageFactoryWithExchange = new BirthdayMessageFactoryWithExchange();
+            var msgService = new MessageService(birthdayMessageFactoryWithExchange);
+
             msgService.Run();
 
+            //Console.WriteLine();
+            //Console.WriteLine("++++++++ +++++++++++++ +++++++++++++++++");
+            //Console.WriteLine();
+
+            var factory = new WelcomeMessageFactoryWithSendGrid();
+            msgService = new MessageService(factory);
+
+            msgService.Run();
             Console.ReadLine();
 
         }
