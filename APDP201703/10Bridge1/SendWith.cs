@@ -2,6 +2,9 @@
 
 namespace _10Bridge1
 {
+    /// <summary>
+    /// Concrete implementor
+    /// </summary>
     public class SendWith : ISendWith
     {
         public void Send(EmailMessage message)

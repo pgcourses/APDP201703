@@ -1,7 +1,10 @@
 ﻿using System;
 
 namespace _10Bridge1
-{
+{   
+    /// <summary>
+    /// Concrete implementor
+    /// </summary>
     public class SendWithMandrill : ISendWith
     {
         public string ClientKey { get; set; }

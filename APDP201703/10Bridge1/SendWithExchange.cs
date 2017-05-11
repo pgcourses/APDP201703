@@ -2,6 +2,9 @@
 
 namespace _10Bridge1
 {
+    /// <summary>
+    /// Concrete implementor
+    /// </summary>
     public class SendWithExchange : ISendWith
     {
         public string Host { get; set; }
