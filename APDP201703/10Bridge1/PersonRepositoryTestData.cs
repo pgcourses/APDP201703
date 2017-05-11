@@ -3,10 +3,10 @@ using System.Collections.Generic;
 
 namespace _10Bridge1
 {
-    internal class PersonRepository
+    public class PersonRepositoryTestData : IPersonRepository
     {
         List<Person> data = new List<Person>();
-        public PersonRepository()
+        public PersonRepositoryTestData()
         {
             data.Add(
                     new Person
@@ -33,7 +33,7 @@ namespace _10Bridge1
             return data[0];
         }
 
-        public Person Get(int v)
+        public Person Get(int id)
         {
             throw new NotImplementedException();
         }

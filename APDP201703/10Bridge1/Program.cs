@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Ninject;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,13 +17,26 @@ namespace _10Bridge1
     /// </summary>
     class Program
     {
+        private static StandardKernel kernel;
+
         static void Main(string[] args)
         {
             //A híd minta bevezetéséhez és tesztjéhez
             TestBridge1();
 
+            //Fel kell paraméterezni a Ninject-et:
+            kernel = new StandardKernel();
+            kernel.Bind<IPersonRepository>()
+                  //.To<PersonRepositoryTestData>()
+                  .To<PersonRepositorySimpleData>()
+                  .InSingletonScope();
+
+            Console.WriteLine();
+            Console.WriteLine("++++++++ +++++++++++++ +++++++++++++++++");
+            Console.WriteLine();
+
             //A dekorátor/proxy/facade
-            //TestBridgeAndDecoratorAndProxy();
+            TestBridgeAndDecoratorAndProxy();
 
             Console.ReadLine();
 
@@ -30,12 +44,23 @@ namespace _10Bridge1
 
         private static void TestBridgeAndDecoratorAndProxy()
         {
-            var officeAddress = new EmailAddress { Address = "iroda@hivatali.hu", Display = "Az iroda email címe" };
+            var officeAddress = EmailAddressFactory.GetNewAddress(address: "iroda@hivatali.hu", display: "Az iroda email címe" );
 
             //előre tudom, hogy hidat akarok használni,
             //leválasztom a konkrét megvalósítást a használattól
             //ez az adatok tárolásánál a repository minta
-            var repo = new PersonRepository();
+
+            //EZ HELYETT
+            //var repo = new PersonRepository();
+            //EZ: Repo példányosítása DI framework-kel
+            //https://www.hanselman.com/blog/ListOfNETDependencyInjectionContainersIOC.aspx
+            //https://ayende.com/blog/2886/building-an-ioc-container-in-15-lines-of-code
+            //http://kenegozi.com/blog/2008/01/17/its-my-turn-to-build-an-ioc-container-in-15-minutes-and-33-lines
+            //http://blogs.clariusconsulting.net/kzu/funq-screencast-series-on-how-to-building-a-di-container-using-tdd/
+            //http://structuremap.github.io/quickstart/
+
+            //amit használunk, az a ninject: http://www.ninject.org/
+            var repo = kernel.Get<IPersonRepository>();
 
             //csak példa, ilyeneket lehet csinálni a repoban, de most nem kell
             //var person = repo.Get(1); 
@@ -74,26 +99,25 @@ namespace _10Bridge1
             //       Sok komolyabb workflow-t implementáló WebAPI ad saját kliens könyvtárat.
             //       Például: Paypal fizetés
 
-            var message = new EmailMessage
-            {
-                From = officeAddress,
-                To = person.EmailAddress,
-                Subject = "üdvözlet",
-                Message = "Boldog születésnapot"
-            };
+            var message = EmailMessage.Factory
+            (
+                from: officeAddress,
+                to: person.EmailAddress,
+                subject: "üdvözlet",
+                message: "Boldog születésnapot"
+            );
 
             serviceWithLogger.Send(message);
         }
 
         private static void TestBridge1()
         {
-            var message = new EmailMessage
-            {
-                From = new EmailAddress { Address = "egy@teszt.hu", Display = "az első cím" },
-                To = new EmailAddress { Address = "ketto@teszt.hu", Display = "a második cím" },
-                Subject = "tesztüzenet",
-                Message = "ez egy tesztüzenet, amit egy küld a kettőnek"
-            };
+            EmailMessage message = EmailMessage.Factory(
+                from: EmailAddressFactory.GetNewAddress(address: "egy@teszt.hu", display: "az első cím"), 
+                to: EmailAddressFactory.GetNewAddress(address: "ketto@teszt.hu", display: "a második cím"),
+                subject: "tesztüzenet", 
+                message: "ez egy tesztüzenet, amit egy küld a kettőnek");
+
 
             //Concrete implementor
             var strategy = AbstractSendWith.Factory<SendWith>();

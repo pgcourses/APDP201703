@@ -33,6 +33,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Ninject, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.3.2.2.0\lib\net45-full\Ninject.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
@@ -45,14 +49,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EmailAddress.cs" />
+    <Compile Include="EmailAddressFactory.cs" />
     <Compile Include="EmailMessage.cs" />
     <Compile Include="EmailService.cs" />
     <Compile Include="EmailServiceProxy.cs" />
     <Compile Include="EmailServiceWithLogger.cs" />
     <Compile Include="AbstractSendWith.cs" />
+    <Compile Include="IPersonRepository.cs" />
     <Compile Include="MagicValues.cs" />
     <Compile Include="Person.cs" />
-    <Compile Include="PersonRepository.cs" />
+    <Compile Include="PersonRepositorySimpleData.cs" />
+    <Compile Include="PersonRepositoryTestData.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SendWith.cs" />
@@ -64,6 +71,7 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="Design\ClassDiagram1.cd" />
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
