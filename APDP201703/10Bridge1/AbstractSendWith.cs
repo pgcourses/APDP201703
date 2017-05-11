@@ -35,6 +35,17 @@ namespace _10Bridge1
             //var tmp = new T();
             //tmp.Setup();
 
+            //Mivel egy helyen példányosítunk, ezért
+            //tudjuk paraméterezni a példányosítást
+            //teszteléshez (Debug) egy felparaméterezett változat
+            //éles (Release) futáshoz pedig a "rendes"
+#if DEBUG
+            if (typeof(T)==typeof(SendWithExchange))
+            {
+                return (T)(AbstractSendWith)((SendWithExchange)(new SendWithExchangeTest()));
+            }
+#endif
+
             return new T();
         }
 

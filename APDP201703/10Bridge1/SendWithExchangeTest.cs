@@ -1,17 +1,12 @@
 ﻿using System;
-using System.Configuration;
 
 namespace _10Bridge1
 {
     /// <summary>
     /// Concrete implementor
     /// </summary>
-    public class SendWithExchange : AbstractSendWith
+    public class SendWithExchangeTest : SendWithExchange
     {
-        public string Host { get; set; }
-        public string Password { get; set; }
-        public string UserName { get; set; }
-
         public override void Send(EmailMessage message)
         {
             Console.WriteLine("A következő üzenetet elküldtük az Exchange szervizből SMTP-vel.");
@@ -24,10 +19,10 @@ namespace _10Bridge1
 
         protected override void Setup()
         {
-            Host = ConfigurationManager.AppSettings[MagicValues.AppSettingsMsxHost];
-            UserName = ConfigurationManager.AppSettings[MagicValues.AppSettingsMsxUserName];
-            Password = ConfigurationManager.AppSettings[MagicValues.AppSettingsMsxPassword];
-        }
+            Host = "1.1.1.1";
+            UserName = "MSXUser";
+            Password = "MSXPassword";
+       }
 
     }
 }

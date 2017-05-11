@@ -34,6 +34,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -49,14 +50,16 @@
     <Compile Include="EmailServiceProxy.cs" />
     <Compile Include="EmailServiceWithLogger.cs" />
     <Compile Include="AbstractSendWith.cs" />
+    <Compile Include="MagicValues.cs" />
     <Compile Include="Person.cs" />
     <Compile Include="PersonRepository.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SendWith.cs" />
     <Compile Include="SendWithExchange.cs" />
+    <Compile Include="SendWithExchangeTest.cs" />
     <Compile Include="SendWithMandrill.cs" />
-    <Compile Include="SendWithWithSendGrid.cs" />
+    <Compile Include="SendWithSendGrid.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

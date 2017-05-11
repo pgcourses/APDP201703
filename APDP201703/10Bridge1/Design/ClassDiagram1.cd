@@ -53,7 +53,7 @@
     <Position X="4.25" Y="4.75" Width="1.75" />
     <TypeIdentifier>
       <HashCode>AAABAAAACAAAAAAAAEAAgAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>SendWithWithSendGrid.cs</FileName>
+      <FileName>SendWithSendGrid.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="_10Bridge1.AbstractSendWith">
