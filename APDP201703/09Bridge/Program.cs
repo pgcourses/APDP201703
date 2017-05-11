@@ -46,7 +46,6 @@ namespace _09Bridge
             serviceM.ClientSecret = "MANDRILL-SECRET";
             serviceM.ClientKey = "MANDRILL-KEY";
             serviceM.Send(message);
-
             Console.ReadLine();
 
         }
