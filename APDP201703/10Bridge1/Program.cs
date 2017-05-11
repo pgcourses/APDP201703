@@ -38,6 +38,16 @@ namespace _10Bridge1
 
             var sendWith = new SendWith();
             var service = new EmailService(sendWith);
+            //készítünk egy olyan szervizt, ami naplót is készít
+            //ezt dekorátor mintával tudjuk megtenni, ha a szerviz kódját nem módosíthatjuk.
+
+            //Akkor működik, ha a függvény, amit dekorálni akarok virtuális VAGY
+            //akkor működik, ha a saját felületemet tudom használni
+            var serviceWithLogger = new EmailServiceWithLogger(service, sendWith);
+
+            //Ha az eredeti felületet kell használnom, ÉS nem virtuális az eredeti függvény, 
+            //akkor nem fogja meghívni semmi az én függvényemet, ez így sosem fog naplózni.
+            //EmailService serviceWithLogger = new EmailServiceWithLogger(service, sendWith);
 
             var message = new EmailMessage
             {
@@ -47,7 +57,7 @@ namespace _10Bridge1
                 Message = "Boldog születésnapot"
             };
 
-            service.Send(message);
+            serviceWithLogger.Send(message);
 
             Console.ReadLine();
 
