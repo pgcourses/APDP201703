@@ -13,7 +13,7 @@
     {
         private EmailService service;
 
-        public EmailServiceWithLogger(EmailService service, ISendWith sendWith) 
+        public EmailServiceWithLogger(EmailService service, AbstractSendWith sendWith) 
             : base(sendWith)
         {
             this.service = service;

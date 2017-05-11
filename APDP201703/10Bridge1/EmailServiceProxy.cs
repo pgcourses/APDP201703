@@ -4,7 +4,7 @@
     {
         private EmailService service;
 
-        public EmailServiceProxy(EmailService service, SendWith sendWith) 
+        public EmailServiceProxy(EmailService service, AbstractSendWith sendWith) 
             : base(sendWith)
         {
             this.service = service;

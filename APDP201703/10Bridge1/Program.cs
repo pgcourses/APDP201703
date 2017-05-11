@@ -19,8 +19,17 @@ namespace _10Bridge1
         static void Main(string[] args)
         {
             //A híd minta bevezetéséhez és tesztjéhez
-            //TestBridge1();
+            TestBridge1();
 
+            //A dekorátor/proxy/facade
+            //TestBridgeAndDecoratorAndProxy();
+
+            Console.ReadLine();
+
+        }
+
+        private static void TestBridgeAndDecoratorAndProxy()
+        {
             var officeAddress = new EmailAddress { Address = "iroda@hivatali.hu", Display = "Az iroda email címe" };
 
             //előre tudom, hogy hidat akarok használni,
@@ -36,7 +45,7 @@ namespace _10Bridge1
 
             var person = repo.GetBirthdayPersons();
 
-            var sendWith = new SendWith();
+            var sendWith = AbstractSendWith.Factory<SendWith>();
             var service = new EmailService(sendWith);
             //készítünk egy olyan szervizt, ami naplót is készít
             //ezt dekorátor mintával tudjuk megtenni, ha a szerviz kódját nem módosíthatjuk.
@@ -74,9 +83,6 @@ namespace _10Bridge1
             };
 
             serviceWithLogger.Send(message);
-
-            Console.ReadLine();
-
         }
 
         private static void TestBridge1()
@@ -90,7 +96,7 @@ namespace _10Bridge1
             };
 
             //Concrete implementor
-            var strategy = new SendWith();
+            var strategy = AbstractSendWith.Factory<SendWith>();
 
             //Abstraction
             var service = new EmailService(strategy);
@@ -98,30 +104,20 @@ namespace _10Bridge1
             Console.WriteLine();
 
             //Concrete implementor
-            var strategyMsx = new SendWithExchange();
-            strategyMsx.Host = "1.1.1.1";
-            strategyMsx.UserName = "MSXUser";
-            strategyMsx.Password = "MSXPassword";
+            var strategyMsx = AbstractSendWith.Factory<SendWithExchange>();
 
             //vegyük észre: nem kell új szerviz típust példányositani
             service = new EmailService(strategyMsx);
             service.Send(message);
             Console.WriteLine();
-
             //Concrete implementor
-            var strategySG = new SendWithWithSendGrid();
-            strategySG.HostUrl = "https://sendgrid.service.com";
-            strategySG.ApiKey = "SG-APIKEY";
+            var strategySG = AbstractSendWith.Factory<SendWithSendGrid>();
 
             service = new EmailService(strategySG);
             service.Send(message);
             Console.WriteLine();
-
             //Concrete implementor
-            var strategyM = new SendWithMandrill();
-            strategyM.HostUrl = "https://api.mandrill.com";
-            strategyM.ClientSecret = "MANDRILL-SECRET";
-            strategyM.ClientKey = "MANDRILL-KEY";
+            var strategyM = AbstractSendWith.Factory<SendWithMandrill>();
 
             service = new EmailService(strategyM);
             service.Send(message);
