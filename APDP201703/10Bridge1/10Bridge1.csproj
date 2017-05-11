@@ -57,6 +57,7 @@
     <Compile Include="AbstractSendWith.cs" />
     <Compile Include="IPersonRepository.cs" />
     <Compile Include="MagicValues.cs" />
+    <Compile Include="MessageService.cs" />
     <Compile Include="Person.cs" />
     <Compile Include="PersonRepositorySimpleData.cs" />
     <Compile Include="PersonRepositoryTestData.cs" />
@@ -67,6 +68,7 @@
     <Compile Include="SendWithExchangeTest.cs" />
     <Compile Include="SendWithMandrill.cs" />
     <Compile Include="SendWithSendGrid.cs" />
+    <Compile Include="Templating.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
