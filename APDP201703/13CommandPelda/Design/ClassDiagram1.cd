@@ -3,7 +3,7 @@
   <Class Name="_13CommandPelda.ModositasParancs" BaseTypeListCollapsed="true">
     <Position X="2.5" Y="2" Width="1.75" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAQAAAAAAEAAAAAAAAAAEAAIAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAIAAQAAAAAAEAAAAAAAAAAEAAIAAAAAAA=</HashCode>
       <FileName>ModositasParancs.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
@@ -11,7 +11,7 @@
   <Class Name="_13CommandPelda.TorlesParancs" BaseTypeListCollapsed="true">
     <Position X="0.5" Y="2" Width="1.75" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAQAAAAAAEAAAAAAAAAAEAAIAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAIAAQAAAAAAEAAAAAAAAAAEAAIAAAAAAA=</HashCode>
       <FileName>TorlesParancs.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
@@ -19,13 +19,13 @@
   <Class Name="_13CommandPelda.UjParancs" BaseTypeListCollapsed="true">
     <Position X="4.5" Y="2" Width="1.75" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAQAAAAAAEAAAAAAAAAAAAAIAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAIAAQAAAAAAEAAAAAAAAAAAAAIAAAAAAA=</HashCode>
       <FileName>UjParancs.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="_13CommandPelda.ParancsFeldolgozo">
-    <Position X="10.25" Y="2" Width="1.75" />
+    <Position X="10.25" Y="0.5" Width="1.75" />
     <TypeIdentifier>
       <HashCode>AAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAA=</HashCode>
       <FileName>ParancsFeldolgozo.cs</FileName>
@@ -34,10 +34,20 @@
       <Field Name="parancslista" />
     </ShowAsCollectionAssociation>
   </Class>
-  <Interface Name="_13CommandPelda.IParancs">
-    <Position X="7.5" Y="2" Width="1.5" />
+  <Class Name="_13CommandPelda.Alkalmazas">
+    <Position X="10.25" Y="2.5" Width="1.75" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAQAAAAAAEAAAAAAAAAAAAAIAAAAAAA=</HashCode>
+      <HashCode>AAAEAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQ=</HashCode>
+      <FileName>Alkalmazas.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Field Name="parancslista" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Interface Name="_13CommandPelda.IParancs">
+    <Position X="7.25" Y="1" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAIAAQAAAAAAEAAAAAAAAAAAAAIAAAAAAA=</HashCode>
       <FileName>IParancs.cs</FileName>
     </TypeIdentifier>
   </Interface>

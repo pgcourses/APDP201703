@@ -4,10 +4,8 @@ namespace _13CommandPelda
 {
     public class UjParancs : IParancs
     {
-        public string ParancsSzoveg
-        {
-            get { return MagicValues.CommandTextNew; }
-        }
+        public string HasznalatiUtasitas { get { return MagicValues.CommandTextNew; } }
+        public string ParancsSzoveg { get { return MagicValues.CommandTextNew; } }
 
         public void ParameterBeallitas(string[] args)
         {

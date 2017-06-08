@@ -5,19 +5,22 @@ namespace _13CommandPelda
 {
     public class Alkalmazas
     {
+        private List<IParancs> parancslista = new List<IParancs>();
 
         public string Bevitel(string[] args)
         {
-            if (args.Length == 0)
-            { //
-                return HasznalatiUtasitas();
-            }
 
-            var parancslista = new List<IParancs>(new IParancs[] {
+            parancslista = new List<IParancs>(new IParancs[] {
                 new UjParancs(),
                 new ModositasParancs(),
                 new TorlesParancs()
             });
+
+            //figyelem, előre generálni kell a parancslistát, hogy ez működjön!
+            if (args.Length == 0)
+            { //
+                return HasznalatiUtasitas();
+            }
 
             var feldolgozo = new ParancsFeldolgozo(parancslista);
             return feldolgozo.Vegrehajtas(args);
@@ -26,9 +29,11 @@ namespace _13CommandPelda
         public string HasznalatiUtasitas()
         {
             var hUtasitas = string.Format("Használat: CommandPelda[.Exe] parancs paraméterek{0}", Environment.NewLine);
-            hUtasitas = string.Format("{0}{1}{2}", hUtasitas, MagicValues.CommandTextNew, Environment.NewLine);
-            hUtasitas = string.Format("{0}{1} paraméter{2}", hUtasitas, MagicValues.CommandTextModify, Environment.NewLine);
-            hUtasitas = string.Format("{0}{1} paraméter{2}", hUtasitas, MagicValues.CommandTextDelete, Environment.NewLine);
+
+            foreach (var parancs in parancslista)
+            {
+                hUtasitas = string.Format("{0}{1}{2}", hUtasitas, parancs.HasznalatiUtasitas, Environment.NewLine);
+            }
             return hUtasitas;
         }
     }

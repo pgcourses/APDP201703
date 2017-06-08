@@ -23,6 +23,7 @@ namespace _13CommandPelda
             //ezért Single a Where helyett
             var parancs = parancslista.SingleOrDefault(p => p.ParancsSzoveg == parancsszoveg);
 
+            //todo: a null használatát megszüntetni
             if (parancs==null)
             {
                 return MagicValues.CommandResponseInvalid;

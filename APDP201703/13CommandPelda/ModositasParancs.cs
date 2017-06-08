@@ -6,10 +6,8 @@ namespace _13CommandPelda
     {
         private string parameter;
 
-        public string ParancsSzoveg
-        {
-            get { return MagicValues.CommandTextModify; }
-        }
+        public string HasznalatiUtasitas { get { return string.Format("{0} paraméter", MagicValues.CommandTextModify); } }
+        public string ParancsSzoveg { get { return MagicValues.CommandTextModify; } }
 
         public void ParameterBeallitas(string[] args)
         {
