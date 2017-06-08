@@ -7,6 +7,12 @@ namespace _12BuilderPelda
 {
     public class Computer
     {
+        public Computer()
+        {
+            //null object pattern
+            Applications = new List<string>();
+        }
+
         public List<string> Applications { get; set; }
         public bool HasDVD { get; set; }
         public bool HasSoundCard { get; set; }

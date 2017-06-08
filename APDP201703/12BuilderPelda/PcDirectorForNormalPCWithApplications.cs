@@ -10,15 +10,14 @@ namespace _12BuilderPelda
     /// A létrehozás magasabb színtű vezérlője, 
     /// a builder lépéseit irányítja
     /// </summary>
-    public class NormalPcDirector : AbstractPCDirector
+    public class PcDirectorForNormalPCWithApplications : AbstractPCDirector
     {
-        public NormalPcDirector(AbstractPCBuilder builder) 
+        public PcDirectorForNormalPCWithApplications(AbstractPCBuilder builder) 
             : base(builder)
         { }
 
         public override void BuildPC()
         {
-            builder.CreatePC();
             builder.BuildHardware();
             builder.InstallOS();
             builder.InstallApplications();

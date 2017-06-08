@@ -18,10 +18,16 @@ namespace _12BuilderPelda
         static void Main(string[] args)
         {
 
-            var director = new NormalPcDirector(new PCBuilderForWindows());
-            director.BuildPC();
-            var computer = director.GetPC();
-            computer.Display();
+            var director1 = new PcDirectorForNormalPCWithApplications(new PCBuilderForWindows());
+            director1.BuildPC();
+            var computer1 = director1.GetPC();
+            computer1.Display();
+
+            var director2 = new PcDirectorForNormalPCWithoutApplications(new PCBuilderForLinux());
+            director2.BuildPC();
+            var computer2 = director2.GetPC();
+            computer2.Display();
+
 
             Console.ReadLine();
         }
