@@ -10,8 +10,15 @@
     <local:MainWindowViewModel />
   </Window.DataContext>
     <Grid>
-      <ProgressBar Margin="10" Height="20" VerticalAlignment="Top" Value="{Binding ProgressValue}"/>
-      <Button VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="10" Content="Indítás" Padding="20" Command="{Binding StartCommand}"/>
+      <ProgressBar Margin="10" Height="20" VerticalAlignment="Top" Value="{Binding ProgressValue}">
+        <ProgressBar.ContextMenu>
+          <ContextMenu>
+            <MenuItem Header="Elindítás" Command="{Binding StartCommand}"/>
+            <MenuItem Header="Leállítás" Command="{Binding StopCommand}"/>
+          </ContextMenu>
+        </ProgressBar.ContextMenu>
+      </ProgressBar>
+      <Button VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="10" Content="Elindítás" Padding="20" Command="{Binding StartCommand}"/>
       <Button VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="10" Content="Leállítás" Padding="20" Command="{Binding StopCommand}"/>
     </Grid>
 </Window>
