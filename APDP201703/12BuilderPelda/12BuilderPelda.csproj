@@ -49,6 +49,7 @@
   <ItemGroup>
     <Compile Include="AbstractPCBuilder.cs" />
     <Compile Include="Computer.cs" />
+    <Compile Include="NormalPcDirector.cs" />
     <Compile Include="OS.cs" />
     <Compile Include="PCBuilderForLinux.cs" />
     <Compile Include="PCBuilderForWindows.cs" />

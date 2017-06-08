@@ -3,7 +3,7 @@
   <Class Name="_12BuilderPelda.AbstractPCBuilder">
     <Position X="3.75" Y="0.5" Width="1.75" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAgAAAgAAAAAAAAAAAAEAAAABAAAACAgAAAQAA=</HashCode>
+      <HashCode>AAAAAAAgAAAgAAAAAAAAAAAAEAAAAAAAAACAgAAAQAA=</HashCode>
       <FileName>AbstractPCBuilder.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -29,11 +29,21 @@
     </TypeIdentifier>
   </Class>
   <Class Name="_12BuilderPelda.PCBuilderForLinux">
-    <Position X="2.5" Y="3.25" Width="1.5" />
+    <Position X="2.5" Y="3.25" Width="1.75" />
     <TypeIdentifier>
       <HashCode>AAAAAAAgAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA=</HashCode>
       <FileName>PCBuilderForLinux.cs</FileName>
     </TypeIdentifier>
+  </Class>
+  <Class Name="_12BuilderPelda.NormalPcDirector">
+    <Position X="0.5" Y="0.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAIABAAAAAAgAAAAAA=</HashCode>
+      <FileName>NormalPcDirector.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="builder" />
+    </ShowAsAssociation>
   </Class>
   <Enum Name="_12BuilderPelda.OS" Collapsed="true">
     <Position X="10.25" Y="0.5" Width="1.5" />
