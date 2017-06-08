@@ -31,6 +31,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "10Bridge1", "10Bridge1\10Br
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "11Factory", "11Factory\11Factory.csproj", "{D3967368-B828-452F-8942-D4C03CDD892D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "12BuilderPelda", "12BuilderPelda\12BuilderPelda.csproj", "{F5A50B45-B1BE-41DB-BB12-BA6605E365CB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -93,6 +95,10 @@ Global
 		{D3967368-B828-452F-8942-D4C03CDD892D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D3967368-B828-452F-8942-D4C03CDD892D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D3967368-B828-452F-8942-D4C03CDD892D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F5A50B45-B1BE-41DB-BB12-BA6605E365CB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F5A50B45-B1BE-41DB-BB12-BA6605E365CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F5A50B45-B1BE-41DB-BB12-BA6605E365CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F5A50B45-B1BE-41DB-BB12-BA6605E365CB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
