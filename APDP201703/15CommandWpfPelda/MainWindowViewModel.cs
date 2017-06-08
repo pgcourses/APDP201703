@@ -38,7 +38,7 @@ namespace _15CommandWpfPelda
                 {
                     if (cts.Token.IsCancellationRequested)
                     {
-
+                        ProgressValue = 0;
                     }
                     cts.Token.ThrowIfCancellationRequested();
                     ProgressValue=i;
