@@ -19,10 +19,8 @@ namespace _12BuilderPelda
         {
 
             var director = new NormalPcDirector(new PCBuilderForWindows());
-
             director.BuildPC();
             var computer = director.GetPC();
-
             computer.Display();
 
             Console.ReadLine();
