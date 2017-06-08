@@ -24,15 +24,5 @@ namespace _15CommandWpfPelda
         {
             InitializeComponent();
         }
-
-        private void Start_Click(object sender, RoutedEventArgs e)
-        {
-            ((MainWindowViewModel)this.DataContext).Start();
-        }
-
-        private void Stop_Click(object sender, RoutedEventArgs e)
-        {
-            ((MainWindowViewModel)this.DataContext).Stop();
-        }
     }
 }
