@@ -9,7 +9,7 @@ namespace _13CommandPelda
     public static class MagicValues
     {
         public const string CommandResponseDelete = "Törlés kész {0}";
-        public const string CommandResponseInvalid = "A megadott parancs ismeretlen";
+        public const string CommandResponseInvalid = "A megadott parancs ismeretlen: {0}";
         public const string CommandResponseModify = "Módosítás kész ({0})";
         public const string CommandResponseNew = "Új rögzítve";
         public const string CommandTextDelete = "Törlés";

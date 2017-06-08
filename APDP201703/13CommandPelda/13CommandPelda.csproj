@@ -47,6 +47,7 @@
     <Compile Include="IParancs.cs" />
     <Compile Include="MagicValues.cs" />
     <Compile Include="ModositasParancs.cs" />
+    <Compile Include="NincsIlyenParancs.cs" />
     <Compile Include="ParancsFeldolgozo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

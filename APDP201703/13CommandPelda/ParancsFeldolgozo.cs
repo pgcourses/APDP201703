@@ -17,20 +17,23 @@ namespace _13CommandPelda
         {
             //Megtehetem, mert az alkalmazásban kizártam, hogy nincs egy paraméter sem
             var parancsszoveg = args[0];
+            var parancs = ParancsKereseseParacsszovegAlapjan(parancsszoveg);
+            parancs.ParameterBeallitas(args);
+            return parancs.Vegrehajtas();
+        }
 
+        private IParancs ParancsKereseseParacsszovegAlapjan(string parancsszoveg)
+        {
             //pontosan egy parancsra van szükségem a végrehajtáshoz,
             //nem pedig listára
             //ezért Single a Where helyett
             var parancs = parancslista.SingleOrDefault(p => p.ParancsSzoveg == parancsszoveg);
-
-            //todo: a null használatát megszüntetni
-            if (parancs==null)
+            if (parancs == null)
             {
-                return MagicValues.CommandResponseInvalid;
+                parancs = new NincsIlyenParancs();
             }
 
-            parancs.ParameterBeallitas(args);
-            return parancs.Vegrehajtas();
+            return parancs;
         }
     }
 }
