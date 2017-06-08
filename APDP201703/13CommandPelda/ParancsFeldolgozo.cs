@@ -1,54 +1,35 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace _13CommandPelda
 {
     public class ParancsFeldolgozo
     {
-        string[] Parancsok = new string[] 
+        private List<IParancs> parancslista;
+
+        public ParancsFeldolgozo(List<IParancs> parancslista)
         {
-            MagicValues.CommandTextNew,
-            MagicValues.CommandTextModify,
-            MagicValues.CommandTextDelete
-        };
+            this.parancslista = parancslista;
+        }
 
         public string Vegrehajtas(string[] args)
         {
             //Megtehetem, mert az alkalmazásban kizártam, hogy nincs egy paraméter sem
-            var parancsszoveg = args[0]; 
+            var parancsszoveg = args[0];
 
-            //ellenőrzöm, hogy a parancs értelmes-e, és ha ?
-            //igen, végrehajtom
-            //todo: ellenőrizni, hogy kapott-e második paramétert a módosítás és a törlés
-            switch (parancsszoveg)
+            //pontosan egy parancsra van szükségem a végrehajtáshoz,
+            //nem pedig listára
+            //ezért Single a Where helyett
+            var parancs = parancslista.SingleOrDefault(p => p.ParancsSzoveg == parancsszoveg);
+
+            if (parancs==null)
             {
-                case MagicValues.CommandTextNew:
-                    return New();
-                case MagicValues.CommandTextModify:
-                    return Modify(args[1]);
-                case MagicValues.CommandTextDelete:
-                    return Delete(args[1]);
-                default:
-                    return MagicValues.CommandResponseInvalid;
+                return MagicValues.CommandResponseInvalid;
             }
-        }
 
-        private string Delete(string parameter)
-        {
-            //todo: tevékenység elvégzése (Delete)
-            return string.Format(MagicValues.CommandResponseDelete, parameter);
-        }
-
-        private string Modify(string parameter)
-        {
-            //todo: tevékenység elvégzése (Modify)
-            return string.Format(MagicValues.CommandResponseModify, parameter);
-        }
-
-        private string New()
-        {
-            //todo: tevékenység elvégzése (New)
-            return MagicValues.CommandResponseNew;
+            parancs.ParameterBeallitas(args);
+            return parancs.Vegrehajtas();
         }
     }
-
 }

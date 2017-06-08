@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace _13CommandPelda
 {
@@ -12,7 +13,13 @@ namespace _13CommandPelda
                 return HasznalatiUtasitas();
             }
 
-            var feldolgozo = new ParancsFeldolgozo();
+            var parancslista = new List<IParancs>(new IParancs[] {
+                new UjParancs(),
+                new ModositasParancs(),
+                new TorlesParancs()
+            });
+
+            var feldolgozo = new ParancsFeldolgozo(parancslista);
             return feldolgozo.Vegrehajtas(args);
         }
 
