@@ -29,6 +29,7 @@ namespace _13CommandPelda
             var alkalmazas = new Alkalmazas();
             var eredmeny = alkalmazas.Bevitel(args);
             Console.WriteLine(eredmeny);
+
             Console.ReadLine();
 
         }

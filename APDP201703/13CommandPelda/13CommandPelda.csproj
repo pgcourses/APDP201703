@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="Alkalmazas.cs" />
     <Compile Include="MagicValues.cs" />
+    <Compile Include="ParancsFeldolgozo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -1,10 +1,11 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using _13CommandPelda;
+using System.Linq;
 
 namespace _14CommandPelda.Tests
 {
-    ///  - új megrendelés felvitele
+    ///  - új (megrendelés) felvitele
     ///  - meglévő törlése
     ///  - meglévő módosítása
     ///  - ha nem adunk meg semmit, akkor kiírja a használati útmutatót
@@ -33,14 +34,17 @@ namespace _14CommandPelda.Tests
         {
             //Arrange
             var sut = new Alkalmazas();
+            var parameter = "2";
 
             //Act
-            var eredmeny = sut.Bevitel(new string[] { MagicValues.CommandTextDelete, "2" }); //adunk valami paramétert, egyelőre az érték nem számít
+            var eredmeny = sut.Bevitel(new string[] { MagicValues.CommandTextDelete, parameter }); //adunk valami paramétert, egyelőre az érték nem számít
 
             Console.WriteLine(eredmeny);
 
+            var elvart = string.Format(MagicValues.CommandResponseDelete, parameter);
+
             //Assert
-            Assert.AreEqual(MagicValues.CommandResponseDelete, eredmeny);
+            Assert.AreEqual(elvart, eredmeny);
         }
 
         //[TestMethod]
@@ -53,14 +57,16 @@ namespace _14CommandPelda.Tests
         {
             //Arrange
             var sut = new Alkalmazas();
+            var parameter = "2";
 
             //Act
-            var eredmeny = sut.Bevitel(new string[] { MagicValues.CommandTextModify, "2" }); //adunk valami paramétert, egyelőre az érték nem számít
+            var eredmeny = sut.Bevitel(new string[] { MagicValues.CommandTextModify, parameter }); //adunk valami paramétert, egyelőre az érték nem számít
 
             Console.WriteLine(eredmeny);
 
+            var elvart = string.Format(MagicValues.CommandResponseModify, parameter);
             //Assert
-            Assert.AreEqual(MagicValues.CommandResponseModify, eredmeny);
+            Assert.AreEqual(elvart, eredmeny);
         }
 
         //[TestMethod]
@@ -95,7 +101,12 @@ namespace _14CommandPelda.Tests
             Console.WriteLine(eredmeny);
 
             //Assert
-            Assert.AreEqual(MagicValues.CommandResponseUsage, eredmeny);
+            var sorok = eredmeny.Count(x => x == '\n'); //a karakterek közül a soremelés karakterek száma
+            Assert.AreEqual(4, sorok);
+
+            var hUtasitas = sut.HasznalatiUtasitas();
+            Assert.AreEqual(hUtasitas, eredmeny);
+
         }
     }
 }
