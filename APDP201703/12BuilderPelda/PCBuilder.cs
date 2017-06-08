@@ -3,44 +3,26 @@ using System.Collections.Generic;
 
 namespace _12BuilderPelda
 {
-    public class PCBuilder
+    public class PCBuilderForWindows : AbstractPCBuilder
     {
-        private Computer computer;
 
-        public void CreatePC()
-        {
-            computer = new Computer();
-        }
-
-        public void BuildPC()
-        {
-            BuildHardware();
-            InstallOS();
-            InstallApplications();
-        }
-
-        private void InstallApplications()
+        public override void InstallApplications()
         {
             computer.Applications = new List<string> { "MSSQL", "VisualStudio", "VLC" };
         }
 
-        private void InstallOS()
+        public override void InstallOS()
         {
             computer.OS = OS.Windows7;
         }
 
-        private void BuildHardware()
+        public override void BuildHardware()
         {
             computer.Processor = Processor.x64;
             computer.HDD = 120;
             computer.HasDVD = true;
             computer.HasSoundCard = true;
             computer.HasUSB = true;
-        }
-
-        public Computer GetPC()
-        {
-            return computer;
         }
     }
 }

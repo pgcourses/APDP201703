@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="_12BuilderPelda.AbstractPCBuilder">
+    <Position X="4.5" Y="0.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgAAAgAAAAAAAAAAAAEAAAABAAAACAgAAAQAA=</HashCode>
+      <FileName>AbstractPCBuilder.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="computer" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="_12BuilderPelda.Computer">
+    <Position X="7.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAABAAQAAAAAAAAQAAAAAAAAAAAAAAQAgEAAE=</HashCode>
+      <FileName>Computer.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="OS" />
+      <Property Name="Processor" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="_12BuilderPelda.PCBuilderForWindows">
+    <Position X="4.5" Y="3.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA=</HashCode>
+      <FileName>PCBuilder.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="_12BuilderPelda.OS" Collapsed="true">
+    <Position X="10.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAGCAAAAAAgIAAAAAAAAAAAAAgBAAAAAAAAA=</HashCode>
+      <FileName>OS.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="_12BuilderPelda.Processor" Collapsed="true">
+    <Position X="10.25" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAUIAAAAA=</HashCode>
+      <FileName>Processor.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
