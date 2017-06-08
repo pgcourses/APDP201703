@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="_12BuilderPelda.AbstractPCBuilder">
-    <Position X="4.5" Y="0.5" Width="1.75" />
+    <Position X="3.75" Y="0.5" Width="1.75" />
     <TypeIdentifier>
       <HashCode>AAAAAAAgAAAgAAAAAAAAAAAAEAAAABAAAACAgAAAQAA=</HashCode>
       <FileName>AbstractPCBuilder.cs</FileName>
@@ -28,6 +28,13 @@
       <FileName>PCBuilderForWindows.cs</FileName>
     </TypeIdentifier>
   </Class>
+  <Class Name="_12BuilderPelda.PCBuilderForLinux">
+    <Position X="2.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA=</HashCode>
+      <FileName>PCBuilderForLinux.cs</FileName>
+    </TypeIdentifier>
+  </Class>
   <Enum Name="_12BuilderPelda.OS" Collapsed="true">
     <Position X="10.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
@@ -36,7 +43,7 @@
     </TypeIdentifier>
   </Enum>
   <Enum Name="_12BuilderPelda.Processor" Collapsed="true">
-    <Position X="10.25" Y="1.25" Width="1.5" />
+    <Position X="10.25" Y="1.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAUIAAAAA=</HashCode>
       <FileName>Processor.cs</FileName>

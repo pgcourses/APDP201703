@@ -17,13 +17,21 @@ namespace _12BuilderPelda
     {
         static void Main(string[] args)
         {
-            var builder = new PCBuilderForWindows();
+            var builder1 = new PCBuilderForWindows();
 
-            builder.CreatePC();
-            builder.BuildPC();
-            var computer = builder.GetPC();
+            builder1.CreatePC();
+            builder1.BuildPC();
+            var computer1 = builder1.GetPC();
 
-            computer.Display();
+            computer1.Display();
+
+            var builder2 = new PCBuilderForLinux();
+
+            builder2.CreatePC();
+            builder2.BuildPC();
+            var computer2 = builder2.GetPC();
+
+            computer2.Display();
 
             Console.ReadLine();
         }
