@@ -49,6 +49,7 @@
   <ItemGroup>
     <Compile Include="Computer.cs" />
     <Compile Include="OS.cs" />
+    <Compile Include="PCBuilder.cs" />
     <Compile Include="Processor.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

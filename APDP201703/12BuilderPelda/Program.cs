@@ -17,18 +17,16 @@ namespace _12BuilderPelda
     {
         static void Main(string[] args)
         {
-            var computer = new Computer();
+            var builder1 = new PCBuilder();
 
-            computer.Processor = Processor.x64;
-            computer.OS = OS.Windows7;
-            computer.HDD = 120;
-            computer.HasDVD = true;
-            computer.HasSoundCard = true;
-            computer.HasUSB = true;
-            computer.Applications = new List<string> { "MSSQL", "VisualStudio", "VLC" };
+            builder1.CreatePC();
+            builder1.BuildPC();
+            var computer = builder1.GetPC();
+
             computer.Display();
 
             Console.ReadLine();
         }
+
     }
 }
